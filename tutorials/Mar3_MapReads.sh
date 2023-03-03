@@ -1,4 +1,5 @@
 conda activate your_env
+mkdir your_working_directory
 ####Grab and build a reference genome
 #This is a bit separate from Kristina's project, so let's put it all in a new directory
 #Let's do Acropora Millepora
@@ -16,6 +17,7 @@ cd GCA_013753865.1/
 #look at what your genome looks like
 head GCA_013753865.1_Amil_v2.1_genomic.fna
 mv GCA_013753865.1_Amil_v2.1_genomic.fna $SCRATCH/your_working_directory
+cd $SCRATCH/your_working_directory
 #Now let's build this! We'll need bowtie2 - which I think you have installed?
 #Let me know if this part gives you an error
 export GEN=$SCRATCH/qiimetest/GCA_013753865.1_Amil_v2.1_genomic.fna #THE FULL PATH WHERE YOUR FILE IS LOCATED!
@@ -29,7 +31,8 @@ squeue -u cbscott # your username here
 #use bioproject PRJNA434194
 
 #give this a try on your own!
-mkdir NewDirectory 
+
+
 export BioProject=PRJNA434194
 esearch -db sra -query $BioProject | efetch -format runinfo |cut -d "," -f 1 | grep SRR > $BioProject.SRR && esearch -db sra -query $BioProject | efetch -format runinfo > $BioProject.fullMeta.csv
 
