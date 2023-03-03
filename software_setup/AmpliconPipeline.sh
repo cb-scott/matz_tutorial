@@ -19,9 +19,9 @@ sbatch gets10.slurm
 squeue -u cbscott #your username here
 
 #While you wait:
-#need to make a new environment for qiime2, seems to have lots of conflicts 
+#need to make a new environment for qiime2, seems to have lots of conflicts
 wget https://data.qiime2.org/distro/core/qiime2-2023.2-py38-linux-conda.yml
-conda env create -n qiime2-2023.2 --file qiime2-2023.2-py38-linux-conda.yml
+conda env create -n qiime2-2023.2 --file qiime2-2023.2-py38-linux-conda.yml #this is lengthy!!!
 conda activate qiime2-2023.2
 
 #We're going to try to use this tutorial: https://docs.qiime2.org/2023.2/
