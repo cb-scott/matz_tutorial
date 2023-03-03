@@ -29,7 +29,7 @@ squeue -u cbscott # your username here
 #use bioproject PRJNA434194
 
 #give this a try on your own!
-
+mkdir NewDirectory 
 export BioProject=PRJNA434194
 esearch -db sra -query $BioProject | efetch -format runinfo |cut -d "," -f 1 | grep SRR > $BioProject.SRR && esearch -db sra -query $BioProject | efetch -format runinfo > $BioProject.fullMeta.csv
 
