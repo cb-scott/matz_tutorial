@@ -20,7 +20,8 @@ mv GCA_013753865.1_Amil_v2.1_genomic.fna $SCRATCH/your_working_directory
 cd $SCRATCH/your_working_directory
 #Now let's build this! We'll need bowtie2 - which I think you have installed?
 #Let me know if this part gives you an error
-export GEN=$SCRATCH/qiimetest/GCA_013753865.1_Amil_v2.1_genomic.fna #THE FULL PATH WHERE YOUR FILE IS LOCATED!
+#THE FULL PATH WHERE YOUR FILE IS LOCATED! You'll have to change this!
+export GEN=$SCRATCH/qiimetest/GCA_013753865.1_Amil_v2.1_genomic.fna
 echo "bowtie2-build $GEN $GEN" >btb
 ls6_launcher_creator.py -j btb -n btb -a IBN21018 -e YOUREMAIL -t 02:00:00 -N 1 -w 1 -q normal
 sbatch btb.slurm
