@@ -38,7 +38,9 @@ cd .. #change directories one up, now should be in $SCRATCH/microbiome_test (or 
 #it's a little slow so,
 qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' --input-path pairedfastq --input-format CasavaOneEightSingleLanePerSampleDirFmt --output-path demux-paired-end.qza
 
-### Feel free to try to work ahead based on the "otu-clustering" tutorial below if you feel like it. 
+### Feel free to try to work ahead based on the "otu-clustering" tutorial below if you feel like it.
+echo "qiime vsearch dereplicate-sequences --i-sequences demux-paired-end.qza --o-dereplicated-table table.qza --o-dereplicated-sequences rep-seqs.qza" > derep
+python3 $HOME/bin/ls6_launcher_creator.py -j derep -n derep -a IBN21018 -e cbscott@utexas.edu -t 01:00:00 -w 1 -N 1 -q development
 
 
 #We're going to try to use this tutorial: https://docs.qiime2.org/2023.2/
