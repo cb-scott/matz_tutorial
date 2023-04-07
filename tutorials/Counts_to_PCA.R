@@ -48,9 +48,9 @@ its2.dds <- estimateSizeFactors(its2.dds, type = 'poscounts')
 #negative numbers and decimals here - that is ok!
 vsd <- varianceStabilizingTransformation(its2.dds, blind = T)
 count.tab = t(assay(vsd))
-count.tab[count.tab <0] = 0
+#count.tab[count.tab <0] = 0
 #Calculate the distance between your samples. 
-sampleDists <- vegdist(count.tab, method = "bray")
+sampleDists <- vegdist(count.tab, method = "manhattan")
 
 #create a heatmap of your samples - this distance is not constrained between 0 and 1
 pheatmap(sampleDists)
@@ -61,6 +61,7 @@ cap = capscale(sampleDists~1)
 plot(cap)
 
 #take a look at it with respect to your metadata 
+#you may have already read this in up top, if so, skip likes 65 and 66!
 meta = sample_data(ps)
 meta$ID = rownames(meta) 
 
